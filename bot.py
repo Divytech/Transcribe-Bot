@@ -74,7 +74,7 @@ async def ocr(bot, msg):
     os.remove(image)
 
    
-@Bot.on_message(filters.private & (filters.video | filters.document | filters.audio ) & ~filters.edited, group=-1)
+@Bot.on_message(filters.private & (filters.video | filters.document | filters.audio ), group=-1)
 async def speech2txt(bot, m):
     if m.document and not m.document.mime_type.startswith("video/"):
         return
