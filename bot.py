@@ -50,7 +50,7 @@ async def start(bot, update):
     )
 
 
-@Bot.on_message(filters.private & filters.photo & ~filters.edited, group=-1)
+@Bot.on_message(filters.private & filters.photo, group=-1)
 async def ocr(bot, msg):
     lang_code = await bot.ask(msg.chat.id,'`Now send the ISO language code.`\n\n[List of ISO 639-2 language codes](https://en.m.wikipedia.org/wiki/List_of_ISO_639-2_codes)', filters=filters.text, disable_web_page_preview=True)
     data_url = f"https://github.com/tesseract-ocr/tessdata/raw/main/{lang_code.text}.traineddata"
